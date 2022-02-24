@@ -10,9 +10,9 @@ spotify-next is a Web UI wrapper around Spotify which provides a few additional 
 
 ## Conventions
 
-- Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
-- ESLint uses a custom config which slightly extends eslint-plugin-react. Formatting follows (mostly) Prettier's defaults
-- Husky ensures code is linted and formatted before commited
+- Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). A git commit prompt which enforces these conventions is available via [`npm run commit`](https://commitlint.js.org/#/).
+- ESLint uses a custom config which slightly extends eslint-plugin-react. Formatting follows (mostly) Prettier's defaults.
+- Husky ensures code is linted and formatted before commited.
 
 ## Scripts
 
