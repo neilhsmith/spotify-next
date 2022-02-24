@@ -34,6 +34,12 @@ Runs [`next start`](https://nextjs.org/docs/api-reference/cli#production) which 
 npm run start
 ```
 
+Runs [`commit`](https://commitlint.js.org/#/reference-prompt) which starts a git commit prompt and enforces commit message conventions
+
+```
+npm run commit
+```
+
 Runs [`tsc`](https://www.typescriptlang.org/docs/handbook/compiler-options.html) which compiles typescript
 
 ```
