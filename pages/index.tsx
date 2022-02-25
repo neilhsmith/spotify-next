@@ -1,18 +1,12 @@
 import type { NextPage } from "next";
-import { signIn } from "next-auth/react";
-import { Button, useColorMode } from "@chakra-ui/react";
+import { Center } from "@chakra-ui/react";
+import { LoginForm } from "components/loginForm";
 
 const Home: NextPage = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <>
-      <Button onClick={() => signIn("spotify", { callbackUrl: "/app" })}>
-        Sign In with Spotify
-      </Button>
-      <Button onClick={toggleColorMode}>
-        Toggle {colorMode === "light" ? "Dark" : "Light"}
-      </Button>
-    </>
+    <Center h="100%">
+      <LoginForm />
+    </Center>
   );
 };
 
