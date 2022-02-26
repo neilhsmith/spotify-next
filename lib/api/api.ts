@@ -1,4 +1,4 @@
-async function request<TResponse>(
+export async function request<TResponse>(
   url: string,
   config: RequestInit = {}
 ): Promise<TResponse> {
@@ -28,4 +28,5 @@ async function post<TResponse>(
 export const api = {
   get,
   post,
+  request,
 };

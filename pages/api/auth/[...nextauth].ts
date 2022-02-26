@@ -35,8 +35,12 @@ export default NextAuth({
       return updateRefreshToken(token);
     },
     async session({ session, token }) {
-      session.token = token;
       session.user = token.user;
+      // TODO: i dont think i need to add the (spotify) accessToken and error to
+      // session. all requests to Spotify will go through our API so there's no
+      // need for the client to have that info.
+      session.accessToken = token.access_token;
+      session.error = token.error;
 
       return session;
     },
@@ -46,10 +50,14 @@ export default NextAuth({
 async function updateRefreshToken(token: JWT) {
   // TODO: handle this in a try/catch. the access token could not be refreshed
   // so the session should be ended and the user logged out
-  const newToken = await refreshAccessToken(token.refresh_token);
-  return {
-    ...token,
-    access_token: newToken.access_token,
-    expires_at: token.expires_at + newToken.expires_in,
-  };
+  try {
+    const newToken = await refreshAccessToken(token.refresh_token);
+    return {
+      ...token,
+      access_token: newToken.access_token,
+      expires_at: token.expires_at + newToken.expires_in,
+    };
+  } catch (error) {
+    return token;
+  }
 }
